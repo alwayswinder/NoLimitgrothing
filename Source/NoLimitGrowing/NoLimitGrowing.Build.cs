@@ -7,6 +7,11 @@ public class NoLimitGrowing : ModuleRules
 	public NoLimitGrowing(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		PublicIncludePaths.AddRange(
+			new string[]
+			{
+				"NoLimitGrowing",
+			});
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 

@@ -13,5 +13,7 @@ UCLASS()
 class NOLIMITGROWING_API ANLGGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	ANLGGameModeBase(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 };
