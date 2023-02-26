@@ -13,9 +13,22 @@ public class NoLimitGrowing : ModuleRules
 				"NoLimitGrowing",
 			});
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(
+			new string[] { 
+				"Core", 
+				"CoreUObject",
+				"Engine",
+				"InputCore",
+				"ModularGameplay",
+				"GameplayTags",
+			});
 
-		PrivateDependencyModuleNames.AddRange(new string[] {  });
+		PrivateDependencyModuleNames.AddRange(
+			new string[] {
+				"EnhancedInput",
+                "CommonGame",
+                "CommonUser",
+            });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });

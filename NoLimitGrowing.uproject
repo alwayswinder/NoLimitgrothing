@@ -10,7 +10,9 @@
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
 				"Engine",
-				"EnhancedInput"
+				"EnhancedInput",
+				"ModularGameplay",
+				"CommonGame"
 			]
 		}
 	],
@@ -21,6 +23,10 @@
 			"TargetAllowList": [
 				"Editor"
 			]
+		},
+		{
+			"Name": "ModularGameplay",
+			"Enabled": true
 		}
 	]
 }
