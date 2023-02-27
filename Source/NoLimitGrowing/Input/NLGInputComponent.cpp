@@ -2,6 +2,10 @@
 
 
 #include "NLGInputComponent.h"
+#include "Player/NLGLocalPlayer.h"
+#include "EnhancedInputSubsystems.h"
+#include "Settings/NLGSettingsLocal.h"
+
 
 UNLGInputComponent::UNLGInputComponent(const FObjectInitializer& ObjectInitializer)
 {

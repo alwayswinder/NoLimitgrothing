@@ -13,7 +13,7 @@ UNLGSettingsLocal::UNLGSettingsLocal()
 	SetToDefaults();
 }
 
-UNLGSettingsLocal::UNLGSettingsLocal* UNLGSettingsLocal::Get()
+UNLGSettingsLocal* UNLGSettingsLocal::UNLGSettingsLocal::Get()
 {
 	return GEngine ? CastChecked<UNLGSettingsLocal>(GEngine->GetGameUserSettings()) : nullptr;
 }
@@ -22,7 +22,7 @@ void UNLGSettingsLocal::SetToDefaults()
 {
 	Super::SetToDefaults();
 
-	bUseHeadphoneMode = false;
+	/*bUseHeadphoneMode = false;
 	bUseHDRAudioMode = false;
 	bSoundControlBusMixLoaded = false;
 
@@ -35,5 +35,5 @@ void UNLGSettingsLocal::SetToDefaults()
 	FrameRateLimit_OnBattery = 60.0f;
 
 	MobileFrameRateLimit = GetDefaultMobileFrameRate();
-	DesiredMobileFrameRateLimit = MobileFrameRateLimit;
+	DesiredMobileFrameRateLimit = MobileFrameRateLimit;*/
 }

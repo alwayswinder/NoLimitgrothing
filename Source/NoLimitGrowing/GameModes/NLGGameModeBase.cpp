@@ -9,6 +9,9 @@
 #include "NLGExperienceDefinition.h"
 #include "System/NLGAssetManager.h"
 #include "Character/NLGPawnExtensionComponent.h"
+#include "NLGLogChannels.h"
+#include "NLGWorldSettings.h"
+#include "Character/NLGPawnData.h"
 
 
 ANLGGameModeBase::ANLGGameModeBase(const FObjectInitializer& ObjectInitializer /*= FObjectInitializer::Get()*/)
@@ -83,7 +86,7 @@ APawn* ANLGGameModeBase::SpawnDefaultPawnAtTransform_Implementation(AController*
 				}
 				else
 				{
-					UE_LOG(LogLyra, Error, TEXT("Game mode was unable to set PawnData on the spawned pawn [%s]."), *GetNameSafe(SpawnedPawn));
+					UE_LOG(LogNLG, Error, TEXT("Game mode was unable to set PawnData on the spawned pawn [%s]."), *GetNameSafe(SpawnedPawn));
 				}
 			}
 
@@ -93,12 +96,12 @@ APawn* ANLGGameModeBase::SpawnDefaultPawnAtTransform_Implementation(AController*
 		}
 		else
 		{
-			UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn of class [%s] at [%s]."), *GetNameSafe(PawnClass), *SpawnTransform.ToHumanReadableString());
+			UE_LOG(LogNLG, Error, TEXT("Game mode was unable to spawn Pawn of class [%s] at [%s]."), *GetNameSafe(PawnClass), *SpawnTransform.ToHumanReadableString());
 		}
 	}
 	else
 	{
-		UE_LOG(LogLyra, Error, TEXT("Game mode was unable to spawn Pawn due to NULL pawn class."));
+		UE_LOG(LogNLG, Error, TEXT("Game mode was unable to spawn Pawn due to NULL pawn class."));
 	}
 
 	return nullptr;
@@ -111,13 +114,13 @@ void ANLGGameModeBase::OnMatchAssignmentGiven(FPrimaryAssetId ExperienceId, cons
 	{
 		UE_LOG(LogNLGExperience, Log, TEXT("Identified experience %s (Source: %s)"), *ExperienceId.ToString(), *ExperienceIdSource);
 
-		ULyraExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<ULyraExperienceManagerComponent>();
+		UNLGExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<UNLGExperienceManagerComponent>();
 		check(ExperienceComponent);
 		ExperienceComponent->ServerSetCurrentExperience(ExperienceId);
 	}
 	else
 	{
-		UE_LOG(LogLyraExperience, Error, TEXT("Failed to identify experience, loading screen will stay up forever"));
+		UE_LOG(LogNLGExperience, Error, TEXT("Failed to identify experience, loading screen will stay up forever"));
 	}
 #endif
 }
@@ -137,7 +140,7 @@ void ANLGGameModeBase::HandleMatchAssignmentIfNotExpectingOne()
 		}
 	}
 
-	ULyraAssetManager& AssetManager = ULyraAssetManager::Get();
+	UNLGAssetManager& AssetManager = UNLGAssetManager::Get();
 	FAssetData Dummy;
 	if (ExperienceId.IsValid() && !AssetManager.GetPrimaryAssetData(ExperienceId, /*out*/ Dummy))
 	{

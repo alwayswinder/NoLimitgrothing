@@ -21,4 +21,10 @@ public:
 	//~UGameUserSettings interface
 	virtual void SetToDefaults() override;
 	//~End of UGameUserSettings interface
+
+	const TMap<FName, FKey>& GetCustomPlayerInputConfig() const { return CustomKeyboardConfig; }
+
+private:
+	UPROPERTY(Config)
+	TMap<FName, FKey> CustomKeyboardConfig;
 };

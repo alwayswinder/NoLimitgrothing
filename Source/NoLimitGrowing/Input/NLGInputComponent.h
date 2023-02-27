@@ -7,6 +7,8 @@
 #include "NLGInputConfig.h"
 #include "NLGInputComponent.generated.h"
 
+
+class UEnhancedInputLocalPlayerSubsystem;
 /**
  * 
  */

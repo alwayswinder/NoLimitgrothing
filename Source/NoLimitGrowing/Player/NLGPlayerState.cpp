@@ -5,6 +5,26 @@
 #include "NLGLogChannels.h"
 #include "Character/NLGPawnData.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(NLGPlayerState)
+
+ANLGPlayerState::ANLGPlayerState(const FObjectInitializer& ObjectInitializer /*= FObjectInitializer::Get()*/)
+	:Super(ObjectInitializer)
+
+{
+	//AbilitySystemComponent = ObjectInitializer.CreateDefaultSubobject<ULyraAbilitySystemComponent>(this, TEXT("AbilitySystemComponent"));
+	//AbilitySystemComponent->SetIsReplicated(true);
+	//AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
+
+	//CreateDefaultSubobject<ULyraHealthSet>(TEXT("HealthSet"));
+	//CreateDefaultSubobject<ULyraCombatSet>(TEXT("CombatSet"));
+
+	//// AbilitySystemComponent needs to be updated at a high frequency.
+	//NetUpdateFrequency = 100.0f;
+
+	//MyTeamID = FGenericTeamId::NoTeam;
+	//MySquadID = INDEX_NONE;
+}
+
 void ANLGPlayerState::SetPawnData(const UNLGPawnData* InPawnData)
 {
 	check(InPawnData);
