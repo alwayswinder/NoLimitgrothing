@@ -11,11 +11,6 @@ void UNLGPawnExtensionComponent::SetPawnData(const UNLGPawnData* InPawnData)
 
 	APawn* Pawn = GetPawnChecked<APawn>();
 
-	if (Pawn->GetLocalRole() != ROLE_Authority)
-	{
-		return;
-	}
-
 	if (PawnData)
 	{
 		UE_LOG(LogNLG, Error, TEXT("Trying to set PawnData [%s] on pawn [%s] that already has valid PawnData [%s]."), *GetNameSafe(InPawnData), *GetNameSafe(Pawn), *GetNameSafe(PawnData));
@@ -25,9 +20,4 @@ void UNLGPawnExtensionComponent::SetPawnData(const UNLGPawnData* InPawnData)
 	PawnData = InPawnData;
 
 	Pawn->ForceNetUpdate();
-}
-
-void UNLGPawnExtensionComponent::OnRep_PawnData()
-{
-
 }

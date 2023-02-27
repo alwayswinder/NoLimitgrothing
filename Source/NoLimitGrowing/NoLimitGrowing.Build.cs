@@ -21,6 +21,7 @@ public class NoLimitGrowing : ModuleRules
 				"InputCore",
 				"ModularGameplay",
 				"GameplayTags",
+				"CommonLoadingScreen",
 			});
 
 		PrivateDependencyModuleNames.AddRange(

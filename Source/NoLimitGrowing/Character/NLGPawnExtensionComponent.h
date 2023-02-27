@@ -24,12 +24,8 @@ public:
 	const T* GetPawnData() const { return Cast<T>(PawnData); }
 
 	void SetPawnData(const UNLGPawnData* InPawnData);
+
 protected:
-
-	UFUNCTION()
-	void OnRep_PawnData();
-
-
-	UPROPERTY(EditInstanceOnly, ReplicatedUsing = OnRep_PawnData, Category = "NLG|Pawn")
+	UPROPERTY(EditInstanceOnly, Category = "NLG|Pawn")
 	TObjectPtr<const UNLGPawnData> PawnData;
 };
